@@ -1,0 +1,36 @@
+<section>
+
+  <div class="d-flex justify-content-between">
+    <h4>List salarie </h4>
+    <a routerLink="/salarie/index" class="btn btn-success"> Profil Salarie</a>
+  </div>
+
+  <br>
+
+  <table class="table ">
+    <tr>
+      <th>ID</th>
+      <th>Nom et Prénom</th>
+      <th>Date de Naissance</th>
+      <th>Adresse</th>
+      <th>Email</th>
+      <th>Phone</th>
+      <th>Salaire</th>
+      <th width="220px">Action</th>
+    </tr>
+    <tr *ngFor="let salarie of salaries">
+      <td>{{ salarie.id_s }}</td>
+      <td>{{ salarie.nom_prenom }}</td>
+      <td>{{ salarie.date_de_naissance }}</td>
+      <td>{{ salarie.adresse }}</td>
+      <td>{{ salarie.email }}</td>
+      <td>{{ salarie.phone }}</td>
+      <td>{{ salarie.salaire }}</td>
+
+      <td>
+        <a href="#" [routerLink]="['/salarie/', 'edit', salarie.id_s  ]" class="btn btn-primary">Edit</a>
+        <button type="button" (click)="deleteSalarie(salarie.id_s)" class="btn btn-danger">Delete</button>
+      </td>
+    </tr>
+  </table>
+</section>

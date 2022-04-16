@@ -1,0 +1,106 @@
+<div>
+
+  <div class="d-flex justify-content-between">
+    <h4>Form Salarie</h4>
+    <a href="#" routerLink="/salarie/index" class="btn btn-primaryt">Back</a>
+  </div>
+
+  <hr/>
+
+    <form [formGroup ]="form" (ngSubmit)="submit()">
+
+        <div class="form-group row">
+            <div class="col-md-6 ">
+              <label for="title">Nom et Prénom :</label>
+              <input
+                formControlName="nom et prénom"
+                id="nom_prenom"
+                type="text"
+                class="form-control">
+              <div *ngIf="f['nom_prenom'].touched && f['nom_prenom'].invalid" class="alert alert-danger">
+                  <div *ngIf="f['nom_prenom']errors['required']">*Nom et prenom is required.</div>
+                  <div *ngIf="f['nom_prenom']errors['pattern']">*Nom et prenom must only contain letters.</div>
+              </div>
+            </div>
+        </div>
+
+        <div class="form-group row">
+          <div class="col-md-6 ">
+            <label for="date_de_naissance">Date de naissance:</label>
+            <input
+              formControlName="date_de_naissance"
+              id="date_de_naissance"
+              type="date"
+              class="form-control">
+            <div *ngIf="f.date_de_naissance.touched && f.date_de_naissance.invalid" class="alert alert-danger">
+                <div *ngIf="f['date_de_naissance']errors['required']">*Date de Naissance is required.</div>
+
+            </div>
+          </div>
+      </div>
+
+      <div class="form-group row">
+        <div class="col-md-6 ">
+          <label for="addresse">Adresse:</label>
+          <input
+            formControlName="adresse"
+            id="adresse"
+            type="text"
+            class="form-control">
+          <div *ngIf="f.adresse.touched && f.adresse.invalid" class="alert alert-danger">
+              <div *ngIf="f['adresse']errors['required']">*adresse is required.</div>
+
+          </div>
+        </div>
+    </div>
+
+
+        <div class="form-group row">
+            <div class="col-md-6 ">
+              <label for="email">Email:</label>
+              <input
+                formControlName="email"
+                id="email"
+                type="text"
+                class="form-control">
+              <div *ngIf="f.email.touched && f.email.invalid" class="alert alert-danger">
+                  <div *ngIf="f['email']errors['required']">*Email is required.</div>
+                  <div *ngIf="f['email']errors['email']">*The email must be a valid email address.</div>
+              </div>
+            </div>
+        </div>
+
+        <div class="form-group row">
+            <div class="col-md-6 ">
+              <label for="phone">Phone:</label>
+              <input
+                formControlName="phone"
+                id="phone"
+                type="text"
+                class="form-control">
+              <div *ngIf="f.phone.touched && f.phone.invalid" class="alert alert-danger">
+                  <div *ngIf="f['phone']errors['required']">*Phone is required.</div>
+                  <div *ngIf="f['phone']errors['pattern']">*The phone must only contain numbers.</div>
+              </div>
+            </div>
+        </div>
+
+        <div class="form-group row">
+          <div class="col-md-6 ">
+            <label for="salaire">salaire:</label>
+            <input
+              formControlName="salaire"
+              id="salaire"
+              type="number"
+              class="form-control">
+            <div *ngIf="f.salaire.touched && f.salaire.invalid" class="alert alert-danger">
+                <div *ngIf="f['salaire']errors['required']">*Salaire is required.</div>
+                <div *ngIf="f['phone']errors['pattern']">*salaire must only contain numbers.</div>
+            </div>
+          </div>
+      </div>
+
+        <button class="btn btn-primary" type="submit" [disabled]="!form.valid">Submit</button>
+    </form>
+</div>
+
